@@ -7,23 +7,21 @@ export function Welcome() {
       {/* 1. Background Layer - Di gambar terlihat ada gradasi hitam di bawahnya */}
       <div
         id="bg-img"
-        className="absolute -top-23 left-0 right-0 z-0 h-[90%]  w-full"
+        className="absolute top-0 left-0 right-0 z-0 h-[90%]  w-full opacity-30"
       >
         <Image
-          src="artboard.png"
+          src="web.png"
           alt="Background"
-          className="w-full h-full object-cover object-top opacity-70"
-          priority
+          className="w-full h-full object-cover object-top"
         />
         {/* Efek Gradient Gelap di bawah agar tombol lebih terbaca */}
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/95 to-black"></div>
       </div>
 
       {/* 2. Logo Container - Jika logo sudah ada di background, div ini mungkin tidak perlu. 
           Tapi jika ini logo overlay, kita beri jarak yang pas. */}
       <div
         id="logo"
-        className="relative z-20 pt-24 md:pt-40 w-full flex justify-center"
+        className="relative z-20 pt-30 md:pt-40 w-90 flex justify-center"
       >
         <Image
           src="logo/logo-sersahara.png"
@@ -55,7 +53,7 @@ export function Welcome() {
         {/* Tentang Sersahara Button */}
         <Link
           to="/tentang-sersahara"
-          className="bg-[#D9D9D9] w-11/12 md:w-[328px] h-[63px] rounded-[14.44px] flex items-center relative active:scale-95 transition-transform"
+          className="bg-[#D9D9D9] w-11/12 md:w-82 h-15.75 rounded-[14.44px] flex items-center relative active:scale-95 transition-transform"
         >
           {/* Icon - Tetap menggunakan absolute agar tidak merusak posisi teks */}
           <Image

@@ -24,6 +24,10 @@ export function PaymentQrisModal({
   const [fullName, setFullName] = useState("");
   const [address, setAddress] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [isQuantityAnimating, setIsQuantityAnimating] = useState(false);
+  const [quantityDirection, setQuantityDirection] = useState<"up" | "down">(
+    "up",
+  );
 
   useEffect(() => {
     if (!isOpen) {
@@ -31,8 +35,20 @@ export function PaymentQrisModal({
       setQuantity(1);
       setFullName("");
       setAddress("");
+      setIsQuantityAnimating(false);
+      setQuantityDirection("up");
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    setIsQuantityAnimating(true);
+
+    const timeoutId = window.setTimeout(() => {
+      setIsQuantityAnimating(false);
+    }, 180);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [quantity]);
 
   const totalPrice = useMemo(() => unitPrice * quantity, [unitPrice, quantity]);
 
@@ -42,10 +58,12 @@ export function PaymentQrisModal({
   );
 
   const decreaseQuantity = () => {
+    setQuantityDirection("down");
     setQuantity((current) => Math.max(1, current - 1));
   };
 
   const increaseQuantity = () => {
+    setQuantityDirection("up");
     setQuantity((current) => current + 1);
   };
 
@@ -70,7 +88,7 @@ export function PaymentQrisModal({
       onClick={onClose}
     >
       <div
-        className={`w-full rounded-t-[48px] bg-[#F1F1F1] px-8 pt-10 pb-8 shadow-xl transition-transform duration-300 ease-out ${
+        className={`w-full rounded-t-[48px] bg-[#FFFFFF] px-8 pt-10 pb-8 shadow-xl transition-transform duration-300 ease-out ${
           isVisible ? "translate-y-0" : "translate-y-full"
         }`}
         onClick={(event) => event.stopPropagation()}
@@ -81,8 +99,8 @@ export function PaymentQrisModal({
               Informasi Pemesanan
             </h2>
 
-            <div className="mt-8 rounded-[18px] bg-white p-5">
-              <div className="rounded-[14px] bg-[#FCFCFC] px-5 py-5">
+            <div className="mt-1 rounded-[18px] bg-white px-5 py-1">
+              <div className="rounded-[14px] bg-[#FFFFFF] px-2 py-3">
                 <p className="text-[14px] font-semibold uppercase text-black/70">
                   Produk: {productName}
                 </p>
@@ -114,18 +132,27 @@ export function PaymentQrisModal({
                     <button
                       type="button"
                       onClick={decreaseQuantity}
-                      className="text-[28px] font-semibold leading-none"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-black/25 text-[26px] font-semibold leading-none transition-transform duration-150 active:scale-90 disabled:cursor-not-allowed disabled:opacity-35"
                       aria-label="Kurangi jumlah"
+                      disabled={quantity === 1}
                     >
                       -
                     </button>
-                    <span className="text-[20px] font-semibold leading-none">
+                    <span
+                      className={`min-w-8 text-center text-[20px] font-semibold leading-none transition-all duration-200 ${
+                        isQuantityAnimating
+                          ? quantityDirection === "up"
+                            ? "-translate-y-1 scale-115"
+                            : "translate-y-1 scale-115"
+                          : "translate-y-0 scale-100"
+                      }`}
+                    >
                       {quantity}
                     </span>
                     <button
                       type="button"
                       onClick={increaseQuantity}
-                      className="text-[28px] font-semibold leading-none"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-black/25 text-[26px] font-semibold leading-none transition-transform duration-150 active:scale-90"
                       aria-label="Tambah jumlah"
                     >
                       +
@@ -146,7 +173,7 @@ export function PaymentQrisModal({
 
             <button
               type="button"
-              className="mt-8 h-16 w-full rounded-3xl bg-black text-[20px] font-semibold uppercase text-white"
+              className=" h-16 w-full rounded-3xl bg-black text-[20px] font-semibold uppercase text-white"
               onClick={proceedToQris}
             >
               Selesaikan Pembayaran
@@ -158,7 +185,7 @@ export function PaymentQrisModal({
               Selesaikan Pembayaran
             </h2>
 
-            <div className="mt-8 rounded-[18px] bg-white p-5">
+            <div className="mt-1 rounded-[18px] bg-white p-5">
               <div className="rounded-[14px] bg-[#FCFCFC] px-5 py-4">
                 <div className="mt-5 grid place-items-center">
                   <Image
@@ -177,7 +204,7 @@ export function PaymentQrisModal({
 
             <button
               type="button"
-              className="mt-8 h-16 w-full rounded-3xl bg-black text-[20px] font-semibold uppercase text-white"
+              className="mt-1 h-16 w-full rounded-3xl bg-black text-[20px] font-semibold uppercase text-white"
               onClick={finishPayment}
             >
               Selesai
