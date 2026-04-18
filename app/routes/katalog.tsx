@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import type { Route } from "./+types/katalog";
 import katalogData from "../data/katalog.json";
 
 type Product = {
@@ -14,10 +15,33 @@ type Product = {
 
 const PRODUCTS: Product[] = katalogData;
 
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "Katalog Merchandise Sersahara | Sersahara Official" },
+    {
+      name: "description",
+      content:
+        "Lihat katalog merchandise Sersahara resmi: t-shirt, running cap, mug, totebag, dan produk lainnya.",
+    },
+    {
+      name: "keywords",
+      content:
+        "katalog sersahara, merchandise sersahara, t-shirt sersahara, topi sersahara, sersahara",
+    },
+    { property: "og:title", content: "Katalog Merchandise Sersahara" },
+    {
+      property: "og:description",
+      content:
+        "Temukan produk merchandise resmi dari Sersahara di halaman katalog.",
+    },
+    { property: "og:type", content: "website" },
+  ];
+}
+
 export default function Katalog() {
   return (
     <section className="w-full min-h-full bg-white px-8 sm:px-10 pb-12">
-      <div className="mx-auto w-full max-w-2xl pt-1 sm:pt-2">
+      <div className="mx-auto w-full max-w-2xl pt-3 sm:pt-5">
         <h1 className="inline-block pb-1 text-[20px] leading-none font-semibold uppercase tracking-tight text-black sm:text-[44px]">
           Merch Katalog
         </h1>

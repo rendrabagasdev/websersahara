@@ -1,5 +1,6 @@
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import type { Route } from "./+types/katalog-detail";
 import katalogData from "../data/katalog.json";
 import { PaymentQrisModal } from "../components/PaymentQrisModal";
 
@@ -8,6 +9,7 @@ type Product = {
   slug: string;
   brand: string;
   name: string;
+  price: number;
   image: string | null;
   materials: string[];
   sizes: string[];
@@ -16,8 +18,40 @@ type Product = {
 
 const PRODUCTS: Product[] = katalogData;
 
+export function meta({ params }: Route.MetaArgs) {
+  const product = PRODUCTS.find((item) => item.slug === params.slug);
+  const productName = product
+    ? `${product.brand} ${product.name}`
+    : "Produk Sersahara";
+
+  return [
+    { title: `${productName} | Sersahara Official` },
+    {
+      name: "description",
+      content: product
+        ? `${productName} di Sersahara official. ${product.content}`
+        : "Detail produk merchandise resmi Sersahara.",
+    },
+    {
+      name: "keywords",
+      content: product
+        ? `${productName.toLowerCase()}, merchandise sersahara, katalog sersahara, sersahara`
+        : "produk sersahara, merchandise sersahara, sersahara",
+    },
+    { property: "og:title", content: `${productName} | Sersahara` },
+    {
+      property: "og:description",
+      content: product
+        ? `${productName} tersedia di katalog resmi Sersahara.`
+        : "Produk resmi Sersahara.",
+    },
+    { property: "og:type", content: "product" },
+  ];
+}
+
 export default function KatalogDetail() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const product = PRODUCTS.find((item) => item.slug === slug);
   const [selectedSize, setSelectedSize] = useState("");
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
@@ -52,6 +86,13 @@ export default function KatalogDetail() {
     setTimeout(() => {
       setIsPaymentOpen(false);
     }, 260);
+  };
+
+  const finishPayment = () => {
+    closePaymentModal();
+    setTimeout(() => {
+      navigate("/");
+    }, 280);
   };
 
   if (!product) {
@@ -160,6 +201,10 @@ export default function KatalogDetail() {
         isOpen={isPaymentOpen}
         isVisible={isPaymentVisible}
         onClose={closePaymentModal}
+        onFinish={finishPayment}
+        productName={`${product.brand} ${product.name}`}
+        selectedSize={selectedSize}
+        unitPrice={product.price}
       />
     </section>
   );

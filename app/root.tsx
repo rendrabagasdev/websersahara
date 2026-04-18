@@ -28,11 +28,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Sersahara" />
+        <meta name="application-name" content="Sersahara Official" />
+        <meta property="og:site_name" content="Sersahara Official" />
+        <meta property="og:locale" content="id_ID" />
         <Meta />
         <Links />
       </head>

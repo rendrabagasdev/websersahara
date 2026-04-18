@@ -4,7 +4,8 @@
     "slug": "t-shirt",
     "brand": "SERSAHARA",
     "name": "T-SHIRT",
-    "image": null,
+    "price": 150000,
+    "image": "/asset/sersahara-tshirt.png",
     "materials": ["COTTON COMBED 24S", "SABLON PLASTISOL", "PACKAGING BOX"],
     "sizes": [
       "SMALL ( S )",
@@ -19,7 +20,8 @@
     "slug": "runing-cap",
     "brand": "SERSAHARA",
     "name": "RUNING CAP",
-    "image": "/artboard.png",
+    "price": 45000,
+    "image": "/asset/sersahara-runingcap.jpg",
     "materials": ["POLYESTER MESH", "EMBROIDERY LOGO", "ADJUSTABLE STRAP"],
     "sizes": ["ALL SIZE"],
     "content": "Topi ringan dengan ventilasi mesh untuk aktivitas outdoor."
@@ -29,7 +31,8 @@
     "slug": "mug",
     "brand": "SERSAHARA",
     "name": "MUG",
-    "image": null,
+    "price": 25000,
+    "image": "/asset/sersahara-gelas.png",
     "materials": ["CERAMIC", "PRINT UV", "PACKAGING BOX"],
     "sizes": ["300 ML"],
     "content": "Mug keramik untuk kopi atau teh harian."
@@ -39,7 +42,8 @@
     "slug": "totebag",
     "brand": "SERSAHARA",
     "name": "TOTEBAG",
-    "image": null,
+    "price": 30000,
+    "image": "/asset/sersahara-totbag.jpg",
     "materials": ["CANVAS", "SCREEN PRINT", "INSIDE POCKET"],
     "sizes": ["ONE SIZE"],
     "content": "Totebag fungsional untuk penggunaan sehari-hari."
