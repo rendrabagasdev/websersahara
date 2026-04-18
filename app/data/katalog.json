@@ -1,0 +1,47 @@
+[
+  {
+    "id": "tshirt-001",
+    "slug": "t-shirt",
+    "brand": "SERSAHARA",
+    "name": "T-SHIRT",
+    "image": null,
+    "materials": ["COTTON COMBED 24S", "SABLON PLASTISOL", "PACKAGING BOX"],
+    "sizes": [
+      "SMALL ( S )",
+      "MEDIUM ( M )",
+      "LARGE ( L )",
+      "EXTRA LARGE ( XL )"
+    ],
+    "content": "T-shirt basic dengan bahan adem untuk pemakaian harian."
+  },
+  {
+    "id": "cap-001",
+    "slug": "runing-cap",
+    "brand": "SERSAHARA",
+    "name": "RUNING CAP",
+    "image": "/artboard.png",
+    "materials": ["POLYESTER MESH", "EMBROIDERY LOGO", "ADJUSTABLE STRAP"],
+    "sizes": ["ALL SIZE"],
+    "content": "Topi ringan dengan ventilasi mesh untuk aktivitas outdoor."
+  },
+  {
+    "id": "mug-001",
+    "slug": "mug",
+    "brand": "SERSAHARA",
+    "name": "MUG",
+    "image": null,
+    "materials": ["CERAMIC", "PRINT UV", "PACKAGING BOX"],
+    "sizes": ["300 ML"],
+    "content": "Mug keramik untuk kopi atau teh harian."
+  },
+  {
+    "id": "totebag-001",
+    "slug": "totebag",
+    "brand": "SERSAHARA",
+    "name": "TOTEBAG",
+    "image": null,
+    "materials": ["CANVAS", "SCREEN PRINT", "INSIDE POCKET"],
+    "sizes": ["ONE SIZE"],
+    "content": "Totebag fungsional untuk penggunaan sehari-hari."
+  }
+]

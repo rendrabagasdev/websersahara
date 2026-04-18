@@ -7,4 +7,7 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
+  server: {
+    allowedHosts: ["localhost", "unadduceable-jeffry-squashy.ngrok-free.dev"],
+  },
 });
