@@ -84,18 +84,11 @@ export default function MainLayout() {
                 to="/"
                 className="group flex items-center gap-5 text-[16px] font-semibold uppercase leading-none text-black"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-8 w-8 text-black transition-transform duration-200 group-hover:scale-105"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M3 10.5L12 3l9 7.5" />
-                  <path d="M6.5 10v10h11V10" />
-                </svg>
+                <Image
+                  src="/icon/home.svg"
+                  alt="Home"
+                  className="h-8 w-8 object-contain transition-transform duration-200 group-hover:scale-105"
+                />
                 <span>Home</span>
               </Link>
               <Link
