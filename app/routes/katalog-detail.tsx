@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import type { Route } from "./+types/katalog-detail";
 import katalogData from "../data/katalog.json";
 import { PaymentQrisModal } from "../components/PaymentQrisModal";
+import { Image } from "../components/Image";
 
 type Product = {
   id: string;
@@ -120,10 +121,12 @@ export default function KatalogDetail() {
     <section className="w-full min-h-full bg-white px-10 pb-16">
       <div className="mx-auto w-full max-w-md pt-2">
         {product.image ? (
-          <img
+          <Image
             src={product.image}
             alt={`${product.brand} ${product.name}`}
             className="h-80 w-full rounded-[36px] object-cover"
+            priority
+            sizes="(max-width: 768px) 100vw, 448px"
           />
         ) : (
           <div

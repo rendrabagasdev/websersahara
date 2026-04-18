@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router";
+import { Image } from "../components/Image";
 
 export default function MainLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -37,7 +38,7 @@ export default function MainLayout() {
       <header className="w-full h-24 px-4 sm:px-6 flex items-center">
         <div className="flex-1 flex justify-start">
           <button className="p-2" aria-label="Open menu" onClick={openSidebar}>
-            <img
+            <Image
               src="/icon/menu.svg"
               alt="menu icon"
               className="h-6 w-6 sm:h-8 sm:w-8 object-contain"
@@ -46,10 +47,11 @@ export default function MainLayout() {
         </div>
 
         <div className="shrink-0 flex justify-center">
-          <img
+          <Image
             src="/logo/logo-sersahara-hitam.png"
             alt="sersahara logo"
             className="h-10 sm:h-12 w-auto object-contain"
+            priority
           />
         </div>
       </header>
@@ -69,10 +71,11 @@ export default function MainLayout() {
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-14 flex justify-center">
-              <img
+              <Image
                 src="/logo/logo-sersahara-hitam.png"
                 alt="sersahara logo"
                 className="h-14 w-auto object-contain"
+                priority
               />
             </div>
 
@@ -99,7 +102,7 @@ export default function MainLayout() {
                 to="/katalog"
                 className="group flex items-center gap-5 text-[16px] font-semibold uppercase leading-none text-black"
               >
-                <img
+                <Image
                   src="/icon/cart.svg"
                   alt="merchandise"
                   className="h-8 w-8 object-contain transition-transform duration-200 group-hover:scale-105"
@@ -111,7 +114,7 @@ export default function MainLayout() {
                 to="/katalog"
                 className="group flex items-center gap-5 text-[16px] font-semibold uppercase leading-none text-black"
               >
-                <img
+                <Image
                   src="/icon/tentang.svg"
                   alt="tentang sersahara"
                   className="h-8 w-8 object-contain transition-transform duration-200 group-hover:scale-105"

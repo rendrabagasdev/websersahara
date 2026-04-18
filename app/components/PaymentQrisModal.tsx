@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Image } from "./Image";
 
 type PaymentQrisModalProps = {
   isOpen: boolean;
@@ -160,10 +161,11 @@ export function PaymentQrisModal({
             <div className="mt-8 rounded-[18px] bg-white p-5">
               <div className="rounded-[14px] bg-[#FCFCFC] px-5 py-4">
                 <div className="mt-5 grid place-items-center">
-                  <img
+                  <Image
                     src="/asset/qris.jpg"
                     alt="QRIS pembayaran"
                     className="w-full max-w-[320px] rounded-lg object-contain"
+                    sizes="320px"
                   />
                 </div>
 

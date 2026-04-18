@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import { Image } from "../components/Image";
 
 export function Welcome() {
   return (
@@ -8,10 +9,11 @@ export function Welcome() {
         id="bg-img"
         className="absolute -top-23 left-0 right-0 z-0 h-[90%]  w-full"
       >
-        <img
+        <Image
           src="artboard.png"
           alt="Background"
           className="w-full h-full object-cover object-top opacity-70"
+          priority
         />
         {/* Efek Gradient Gelap di bawah agar tombol lebih terbaca */}
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/95 to-black"></div>
@@ -23,10 +25,11 @@ export function Welcome() {
         id="logo"
         className="relative z-20 pt-24 md:pt-40 w-full flex justify-center"
       >
-        <img
+        <Image
           src="logo/logo-sersahara.png"
           alt="Logo"
           className="w-10/12 md:w-1/2 object-contain"
+          priority
         />
       </div>
 
@@ -38,7 +41,7 @@ export function Welcome() {
           className="bg-[#D9D9D9] w-11/12 md:w-[328px] h-[63px] rounded-[14.44px] flex items-center relative active:scale-95 transition-transform"
         >
           {/* Icon - Tetap menggunakan absolute agar tidak merusak posisi teks */}
-          <img
+          <Image
             src="icon/cart.svg"
             alt="cart"
             className="w-8 h-8 absolute left-6 object-contain"
@@ -55,7 +58,7 @@ export function Welcome() {
           className="bg-[#D9D9D9] w-11/12 md:w-[328px] h-[63px] rounded-[14.44px] flex items-center relative active:scale-95 transition-transform"
         >
           {/* Icon - Tetap menggunakan absolute agar tidak merusak posisi teks */}
-          <img
+          <Image
             src="icon/tentang.svg"
             alt="cart"
             className="w-8 h-8 absolute left-6 object-contain"

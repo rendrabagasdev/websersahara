@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import type { Route } from "./+types/katalog";
 import katalogData from "../data/katalog.json";
+import { Image } from "../components/Image";
 
 type Product = {
   id: string;
@@ -54,10 +55,11 @@ export default function Katalog() {
                 className="grid grid-cols-[154px_1fr] items-center gap-6 transition-opacity hover:opacity-80 sm:gap-10"
               >
                 {product.image ? (
-                  <img
+                  <Image
                     src={product.image}
                     alt={`${product.brand} ${product.name}`}
                     className="h-29.5 w-38.5 rounded-[15px] object-cover shadow-[0_8px_20px_rgba(0,0,0,0.18)]"
+                    sizes="154px"
                   />
                 ) : (
                   <div
